@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prioriterte gjøremål</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Mine prioriterte gjøremål</h1>
+        <p>Hold oversikt over hva du bør fokusere på fremover.</p>
+      </header>
+
+      <section class="card form-card" aria-labelledby="legg-til-overskrift">
+        <h2 id="legg-til-overskrift">Legg til nytt gjøremål</h2>
+        <form id="todo-form" class="todo-form">
+          <label for="task-title">Oppgave</label>
+          <input
+            id="task-title"
+            name="title"
+            type="text"
+            maxlength="80"
+            placeholder="F.eks. Planlegg neste sprint"
+            required
+          />
+
+          <label for="task-priority">Prioritet</label>
+          <select id="task-priority" name="priority">
+            <option value="high">Høy</option>
+            <option value="medium">Middels</option>
+            <option value="low">Lav</option>
+          </select>
+
+          <button type="submit">Legg til</button>
+        </form>
+      </section>
+
+      <section class="card" aria-labelledby="liste-overskrift">
+        <div class="list-header">
+          <h2 id="liste-overskrift">Prioritert liste</h2>
+          <button id="clear-completed" class="secondary" type="button">Fjern fullførte</button>
+        </div>
+        <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <template id="todo-item-template">
+      <li class="todo-item">
+        <label>
+          <input type="checkbox" class="complete-checkbox" />
+          <span class="todo-title"></span>
+        </label>
+        <span class="todo-priority"></span>
+        <button class="delete-btn" type="button" aria-label="Slett oppgave">Slett</button>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
